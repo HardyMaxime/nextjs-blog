@@ -1,0 +1,130 @@
+.section-works
+{
+    padding-top: _rem(140px);
+    padding-bottom: _rem(140px);
+    max-width: 1280px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body
+{
+    position: relative;
+    &::before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #000000, $alpha: .9);
+        opacity: 0;
+        transition: opacity ease 1s;
+    }
+
+    &.hover-preview::before
+    {
+        opacity: 1;
+    }
+
+    &.overlaps-index::before
+    {
+        z-index: 300;
+    }
+}
+
+.works-grid
+{
+    margin-top: _rem(80px);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 5%;
+}
+
+.work-item
+{
+    border: solid var(--border-color) 1px;
+    max-width: 800px;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:not(:first-child)
+    {
+        margin-top: 20%;
+    }
+
+    &:nth-child(even)
+    {
+        margin-left: auto;
+    }
+
+    &.active
+    {
+        z-index: 500;
+    }
+}
+
+.work-item-preview
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.work-item-preview-image
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: cubic-bezier(0.6, 0.01, -0.05, 0.9);
+    transition-duration: 1s;
+    transition-delay: .3s;
+
+    &:hover
+    {
+        transform: scale(1.1) !important;
+    }
+}
+
+@media only screen and (max-width:$tablet)
+{
+    .work-item
+    {
+        max-width: 580px;
+        height: 470px;
+    }
+}
+
+@media only screen and (max-width:$mobile)
+{
+    .section-works
+    {
+        padding-top: _rem(80px);
+        padding-bottom: _rem(80px);
+        text-align: center;
+    }
+
+    .work-item
+    {
+        max-width: 100%;
+        height: 430px;
+        margin-right: auto;
+
+        &:not(:first-child)
+        {
+            margin-top: 40px;
+        }
+
+        &:nth-child(even)
+        {
+            margin-left: auto;
+        }
+    }
+}

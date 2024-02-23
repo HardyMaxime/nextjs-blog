@@ -1,0 +1,43 @@
+.border
+{
+    position: relative;
+    &::before,
+    &::after
+    {
+        content: "";
+        position: absolute;
+        background: var(--border-color);
+    }
+}
+
+.border-top::before
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $border-large;
+}
+
+.border-bottom::before
+{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $border-large;
+}
+
+.border-left::after
+{
+    top: 0;
+    left: 0;
+    width: $border-large;
+    height: 100%;
+}
+
+.border-right::after
+{
+    top: 0;
+    right: 0;
+    width: $border-large;
+    height: 100%;
+}

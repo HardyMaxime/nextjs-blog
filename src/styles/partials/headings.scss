@@ -1,0 +1,67 @@
+.heading
+{
+    max-width: 900px;
+    width: 100%;
+}
+
+.heading-main-title
+{
+    @include fontSize(90px);
+    font-weight: 800;
+    line-height: 1.1;
+    font-family: $fontFamilyTitle;
+
+    strong
+    {
+        font-weight: 800;
+        color: var(--primary);
+    }
+}
+
+.heading-description
+{
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+.heading-h2
+{
+    @include fontSize(40px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    font-family: $fontFamilyTitle;
+}
+
+.extra-heading
+{
+    @include fontSize(70px);
+    font-weight: 800;
+    text-transform: uppercase;
+
+    strong
+    {
+        color: var(--primary);
+        font-weight: 800;
+    }
+}
+
+@media only screen and (max-width:$mobile)
+{
+    .heading
+    {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heading-main-title
+    {
+        @include fontSize(40px);
+    }
+
+    .extra-heading
+    {
+        @include fontSize(40px);
+    }
+}

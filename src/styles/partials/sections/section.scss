@@ -1,0 +1,62 @@
+$section-about-skills-break : 1020px;
+
+.section.section-secondary
+{
+    background: var(--section-secondary-bg);
+    color: var(--section-secondary-color);
+}
+
+.section-about-skills
+{
+    display: flex;
+    align-items: flex-start;
+}
+
+.section-about-skills-padding
+{
+    padding: _rem(70px);
+}
+
+.section.section-secondary
+{
+    .border::before,
+    .border::after
+    {
+        background: var(--section-secondary-border-color);
+    }
+}
+
+.section.section-secondary
+{
+    .external-link
+    {
+        color: var(--section-secondary-color);
+        display: inline-flex;
+
+        &::after
+        {
+            background: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJtMTYuMTcyIDktNi4wNzEtNi4wNzEgMS40MTQtMS40MTRMMjAgMTBsLS43MDcuNzA3LTcuNzc4IDcuNzc4LTEuNDE0LTEuNDE0TDE2LjE3MiAxMUgwVjl6IiBmaWxsPSIjMTExMTExIiBjbGFzcz0iZmlsbC0wMDAwMDAiLz4KPC9zdmc+);
+        }
+    }
+}
+
+@media only screen and (max-width:$tablet)
+{
+    .section-about-skills-padding
+    {
+        padding: _rem(40px);
+    }
+}
+
+@media only screen and (max-width:$section-about-skills-break)
+{
+    .section-about-skills
+    {
+        flex-direction: column;
+    }
+}
+
+@import "header.scss";
+@import "about.scss";
+@import "skills.scss";
+@import "works.scss";

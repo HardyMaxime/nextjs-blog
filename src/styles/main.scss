@@ -1,0 +1,137 @@
+/* Variables
+========================================================================== */
+@import "partials/fonts";
+@import "partials/variables";
+
+/* Helpers & librairie
+========================================================================== */
+@import "partials/helpers";
+
+/* Reset 
+========================================================================== */
+@import "partials/resets";
+
+html 
+{
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    color: var(--font-color);
+    font-weight: 400;
+    height: -webkit-fill-available;
+    scroll-behavior: smooth;
+    height: 100%;
+    scroll-padding-top: $topbarHeight;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-main-color);
+    overflow-x: hidden;
+    min-height: 100%;
+
+    &.menu-is-open
+    {
+        overflow: hidden;
+    }
+}
+
+body.menu-is-open,
+body.popup-open
+{
+    overflow: hidden;
+}
+
+main.main
+{
+    position: relative;
+    width: 100%;
+    //height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: $topbarHeight;
+
+    .is-page &
+    {
+        height: 100%;
+    }
+}
+
+.container
+{
+    max-width: $container;
+    padding: 0 $containerPadding;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-fluid
+{
+    max-width: $containerFluid;
+    padding: 0 $containerPadding;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preload-transitions .form-background
+{
+    // Dry this up a bit with SCSS variable
+    $null-transition: none !important;
+
+    -webkit-transition: $null-transition;
+    -moz-transition: $null-transition;
+    -ms-transition: $null-transition;
+    -o-transition: $null-transition;
+    transition: $null-transition;
+}
+
+strong
+{
+    font-weight: 700;
+}
+
+body .margin-top
+{
+    margin-top: -100px;
+    padding-top: 0;
+}
+
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* The hack for Safari */
+        min-height: -webkit-fill-available;
+    }
+}
+
+@media only screen and (max-width:$mobile)
+{
+    html 
+    {
+        font-size: $fontSizeMobile;
+        line-height: $lineHeightMobile;
+    }
+    body
+    {
+        text-align: center;
+    }
+}
+
+/* Import
+========================================================================== */
+
+   @import "partials/404.scss";
+   @import "partials/headings.scss";
+   @import "partials/topbar/topbar.scss";
+   @import "partials/sections/section.scss";
+   @import "partials/borders.scss";
+   @import "partials/default.scss";
+   @import "partials/button.scss";
+   @import "partials/footer.scss";
+   @import "partials/page.scss";
+   @import "partials/animations.scss";

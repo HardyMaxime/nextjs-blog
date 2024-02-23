@@ -1,0 +1,23 @@
+@media only screen and (max-width:$mobile)
+{
+    .topbar-navigation
+    {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: var(--bg-main-color);
+        width: 100%;
+        height: calc(100% - $topbarHeight);
+        z-index: 100;
+        @include fontSize(40px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        .open-topbar &
+        {
+            display: flex;
+        }
+    }
+}

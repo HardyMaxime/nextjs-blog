@@ -1,0 +1,33 @@
+.footer
+{
+    background: var(--bg-footer);
+}
+
+.footer-content
+{
+    padding-top: _rem(90px);
+    padding-bottom: _rem(40px);
+}
+
+.footer-navigation ul
+{
+    display: flex;
+    @include fontSize(14px);
+    gap: 30px;
+    padding-top: _rem(40px);
+    padding-bottom: _rem(40px);
+}
+
+@media only screen and (max-width:$mobile)
+{
+    .footer-content
+    {
+        padding-top: _rem(60px);
+        padding-bottom: _rem(60px);
+    }
+
+    .footer-navigation ul
+    {
+        justify-content: center;
+    }
+}
