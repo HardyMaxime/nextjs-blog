@@ -129,10 +129,7 @@ export function decodeEntities(encodedString) {
 export function getBaseURL()
 {
     let fullURL = process.env.BASE_URL;
-    if (typeof window !== "undefined")
-    {
-        fullURL = window.location.href
-    }
+
     const url = new URL(fullURL);
     const baseUrl = `${url.protocol}//${url.host}/`;
     return baseUrl;
