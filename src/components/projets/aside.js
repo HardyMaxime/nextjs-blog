@@ -22,7 +22,7 @@ export default function Aside({content, categories})
                     <ProjectDetail title="Infos. Complémentaires">
                         {
                             Object.keys(categories).map(function(key) {
-                                return (<Link key={key} href={getBaseURL(location.href)+"mes-projets/categorie/"+categories[key].slug} className='projets-details-link' >
+                                return (<Link key={key} href={getBaseURL(window.location.href)+"mes-projets/categorie/"+categories[key].slug} className='projets-details-link' >
                                     <span dangerouslySetInnerHTML={{ __html: categories[key].name }} />
                                 </Link>)
                             })

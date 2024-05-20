@@ -40,7 +40,7 @@ export default function Preview({src, alt, url})
     }, []);
 
     return(
-        <Link ref={ref} href={getBaseURL(location.href)+"mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
+        <Link ref={ref} href={getBaseURL(window.location.href)+"mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
             <RevealWrapper className='reveal-wrapper' >
                 <div className="reveal-preview">
                     <figure className="work-item-preview" >
