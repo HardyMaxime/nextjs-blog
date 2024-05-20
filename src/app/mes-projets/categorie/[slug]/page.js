@@ -1,26 +1,29 @@
-import ProjectLayout from "@/components/projets/layout";
-import { Fragment } from "react";
-import { extratID } from '../../../helpers';
+import { extratID } from '../../../../helpers';
+import Layout from '../../../../components/page-layout';
+import RevealTitle from '../../../../components/animation/reveal-title';
+import RevealWrapper from '../../../../components/animation/reveal-wrapper';
+import WorksGrid from '../../../../components/sections/works/grid';
 
 export async function generateStaticParams()
 {
-    const res = await fetch(process.env.BACKOFFICE_URL+'projects/paths');
+    const res = await fetch(process.env.BACKOFFICE_URL+'projects/taxonomy/paths');
     const paths = await res.json();
     return paths.slug.map((url) => ({
         slug: url
-    }))
+    }));
 }
 
 async function getData(slug) {
     const ID = extratID(slug);
-    const res = await fetch(process.env.BACKOFFICE_URL+`projects/${ID}`);
+    const res = await fetch(process.env.BACKOFFICE_URL+`projects/taxonomy/${ID}`);
 
     if (!res.ok) {
-      throw new Error('Failed to fetch data')
+        throw new Error('Failed to fetch data');
     }
     return res.json()
 }
 
+/*
 export async function generateMetadata({ params }) {
     const { slug } = params
     const pageID = extratID(slug);
@@ -60,15 +63,31 @@ export async function generateMetadata({ params }) {
           },
     };
 };
-
+*/
 
 export default async function Page({params}) {
     const { slug } = params
     const data = await getData(slug) || [];
 
     return (
-        <Fragment>
-            <ProjectLayout data={data[Object.keys(data)]} />
-        </Fragment>
+        <Layout >
+            <section className="section section-works">
+                <div className="section-content container-fluid">
+                    <hgroup className="heading">
+                        <RevealTitle className='extra-heading' >
+                            <span dangerouslySetInnerHTML={{ __html: data.name }} />
+                        </RevealTitle>
+                        <RevealWrapper className="heading-description">
+                            {
+                                data.content
+                            }
+                        </RevealWrapper>
+                    </hgroup>
+                    {data.children &&
+                        <WorksGrid list={data.children} />
+                    }
+                </div>
+            </section>
+        </Layout>
     );
 }

@@ -143,3 +143,10 @@ export function decodeEntities(encodedString) {
     textArea.innerHTML = encodedString;
     return textArea.value;
 }
+
+export function getBaseURL(fullURL)
+{
+    const url = new URL(fullURL);
+    const baseUrl = `${url.protocol}//${url.host}/`;
+    return baseUrl;
+}

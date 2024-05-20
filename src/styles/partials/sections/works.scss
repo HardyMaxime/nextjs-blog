@@ -6,6 +6,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 body
@@ -91,6 +93,11 @@ body
     {
         transform: scale(1.1) !important;
     }
+}
+
+.see-more-works
+{
+    margin-top: _rem(100px);
 }
 
 @media only screen and (max-width:$tablet)

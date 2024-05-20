@@ -27,7 +27,7 @@ export default function ProjectLayout({data})
                         className="section-page-content border border-top">
                         <div className="container section-page-content-grid">
                             <Content content={data.content} />
-                            <Aside content={data.infos} />
+                            <Aside content={data.infos} categories={data.categories} />
                         </div>
                     </motion.div>
                 </div>

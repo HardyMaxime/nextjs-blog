@@ -1,6 +1,7 @@
 import RevealTitle from '../animation/reveal-title';
 import RevealWrapper from '../animation/reveal-wrapper';
 import WorksGrid from './works/grid';
+import Link from 'next/link';
 
 export default function Works({data})
 {
@@ -21,6 +22,9 @@ export default function Works({data})
                     <WorksGrid list={data.list} />
                 }
             </div>
+            <Link href={"mes-projets/"} className='external-link center see-more-works' >
+                Découvrir tous mes projets
+            </Link>
         </section>
     );
 }
