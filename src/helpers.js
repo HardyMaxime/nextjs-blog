@@ -44,24 +44,6 @@ export function isDefined(element) {
     return (element == null || element == undefined || element.length == 0) ? false : true;
 }
 
-export function getWindowWidth(){
-  var myWidth = 0;
-   if( document.documentElement && ( document.documentElement.clientWidth  ) ) {
-       //IE 6+ in 'standards compliant mode'
-       myWidth = document.documentElement.clientWidth;
-      
-   } else if( typeof( window.innerWidth ) == 'number' ) {
-     //Non-IE
-     myHeight = window.getSize().x;
-     
-   }  else if( document.body && ( document.body.clientWidth  ) ) {
-     //IE 4 compatible
-     myWidth = document.body.clientWidth;
-    
-   }
-   return myWidth ; 
-}
-
 export function updateURLParameter(url, param, paramVal)
 {
     var TheAnchor = null;
@@ -147,7 +129,7 @@ export function decodeEntities(encodedString) {
 export function getBaseURL()
 {
     let fullURL = process.env.BASE_URL;
-    if(window)
+    if (typeof window !== "undefined")
     {
         fullURL = window.location.href
     }
