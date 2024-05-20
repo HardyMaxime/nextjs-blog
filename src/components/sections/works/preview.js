@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image'
 import RevealWrapper from '../../animation/reveal-wrapper';
 import {useRef, useEffect} from 'react';
 import { useBannerRect } from '../../../store/bannerRect';
@@ -40,11 +39,11 @@ export default function Preview({src, alt, url})
     }, []);
 
     return(
-        <Link ref={ref} href={getBaseURL(window.location.href)+"mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
+        <Link ref={ref} href={getBaseURL()+"mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
             <RevealWrapper className='reveal-wrapper' >
                 <div className="reveal-preview">
                     <figure className="work-item-preview" >
-                        <Image className='work-item-preview-image' src={src} width="1920" height="450" alt={alt} loading="lazy" />
+                        <img className='work-item-preview-image' src={src} width="1920" height="450" alt={alt} loading="lazy" />
                     </figure>
                 </div>
             </RevealWrapper>

@@ -144,8 +144,13 @@ export function decodeEntities(encodedString) {
     return textArea.value;
 }
 
-export function getBaseURL(fullURL)
+export function getBaseURL()
 {
+    let fullURL = process.env.BASE_URL;
+    if(window)
+    {
+        fullURL = window.location.href
+    }
     const url = new URL(fullURL);
     const baseUrl = `${url.protocol}//${url.host}/`;
     return baseUrl;
