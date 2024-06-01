@@ -4,7 +4,7 @@ import RevealTitle from '@/components/animation/reveal-title';
 import WorksGrid from '@/components/sections/works/grid';
 
 async function getData() {
-    const res = await fetch(process.env.BACKOFFICE_URL+'pages/59', {  });
+    const res = await fetch(process.env.BACKOFFICE_URL+'pages/'+process.env.PAGE_PROJECT_ID, {  });
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error('Failed to fetch data')

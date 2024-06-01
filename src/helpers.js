@@ -125,12 +125,3 @@ export function decodeEntities(encodedString) {
     textArea.innerHTML = encodedString;
     return textArea.value;
 }
-
-export function getBaseURL()
-{
-    let fullURL = process.env.BASE_URL || "https://maximehardy.me/";
-
-    const url = new URL(fullURL);
-    const baseUrl = `${url.protocol}//${url.host}/`;
-    return baseUrl;
-}

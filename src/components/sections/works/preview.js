@@ -4,7 +4,7 @@ import Link from 'next/link';
 import RevealWrapper from '../../animation/reveal-wrapper';
 import {useRef, useEffect} from 'react';
 import { useBannerRect } from '../../../store/bannerRect';
-import { sleep, getBaseURL } from '../../../helpers';
+import { sleep } from '../../../helpers';
 
 
 function previewActive (e) {
@@ -39,7 +39,7 @@ export default function Preview({src, alt, url})
     }, []);
 
     return(
-        <Link ref={ref} href={getBaseURL()+"mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
+        <Link ref={ref} href={"/mes-projets/"+url} className="work-item" onClick={(e) => setRect(e.target.parentNode.getBoundingClientRect())}>
             <RevealWrapper className='reveal-wrapper' >
                 <div className="reveal-preview">
                     <figure className="work-item-preview" >
