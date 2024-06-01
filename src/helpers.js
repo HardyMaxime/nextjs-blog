@@ -128,7 +128,7 @@ export function decodeEntities(encodedString) {
 
 export function getBaseURL()
 {
-    let fullURL = process.env.BASE_URL;
+    let fullURL = process.env.BASE_URL || "https://maximehardy.me/";
 
     const url = new URL(fullURL);
     const baseUrl = `${url.protocol}//${url.host}/`;
