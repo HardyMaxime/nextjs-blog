@@ -13,6 +13,7 @@ export default function AboutSkills({skills})
                     Object.keys(skills.list).map(function(key) {
                         return <SkillItem key={key} logoName={skills.list[key].icon_name} title={skills.list[key].title} >
                             {skills.list[key].description}
+                            <span dangerouslySetInnerHTML={{ __html: skills.list[key].description }} />
                         </SkillItem>
                     })
                 }

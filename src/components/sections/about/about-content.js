@@ -10,7 +10,7 @@ export default function AboutContent({about})
             </RevealTitle>
             <RevealWrapper>
                 <div className="content slide-out-in reveal-2">
-                    {about.content}
+                    <div className="content-text" dangerouslySetInnerHTML={{ __html: about.content }} />
                 </div>
             </RevealWrapper>
         </div>
