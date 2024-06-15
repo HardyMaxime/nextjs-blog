@@ -59,9 +59,7 @@ export default async function Page() {
                             <span dangerouslySetInnerHTML={{ __html: data.content.header.title }} />
                         </RevealTitle>
                         <RevealWrapper className="heading-description">
-                            {
-                                data.content.header.content
-                            }
+                            <span dangerouslySetInnerHTML={{ __html: data.content.header.content }} />
                         </RevealWrapper>
                     </hgroup>
                     {data.content.list &&
