@@ -4,7 +4,7 @@ import { extratID } from '../../../helpers';
 
 export async function generateStaticParams()
 {
-    const res = await fetch(process.env.BACKOFFICE_URL+'projects/paths');
+    const res = await fetch(process.env.BACKOFFICE_URL+'projects/paths', { next: { revalidate: 10 } });
     const paths = await res.json();
     return paths.slug.map((url) => ({
         slug: url

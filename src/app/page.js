@@ -4,7 +4,7 @@ import AboutWrapper from '../components/sections/about/about-wrapper';
 import Works from '../components/sections/works';
 
 async function getData() {
-    const res = await fetch(process.env.BACKOFFICE_URL+'pages/8', { cache: 'force-cache' });
+    const res = await fetch(process.env.BACKOFFICE_URL+'pages/8', { next: { revalidate: 10 } });
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error('Failed to fetch data')

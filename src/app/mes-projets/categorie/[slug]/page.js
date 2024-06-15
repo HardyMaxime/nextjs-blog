@@ -6,7 +6,7 @@ import WorksGrid from '../../../../components/sections/works/grid';
 
 export async function generateStaticParams()
 {
-    const res = await fetch(process.env.BACKOFFICE_URL+'projects/taxonomy/paths');
+    const res = await fetch(process.env.BACKOFFICE_URL+'projects/taxonomy/paths', { next: { revalidate: 10 } });
     const paths = await res.json();
     return paths.slug.map((url) => ({
         slug: url
@@ -15,7 +15,7 @@ export async function generateStaticParams()
 
 async function getData(slug) {
     const ID = extratID(slug);
-    const res = await fetch(process.env.BACKOFFICE_URL+`projects/taxonomy/${ID}`);
+    const res = await fetch(process.env.BACKOFFICE_URL+`projects/taxonomy/${ID}`, { next: { revalidate: 10 } });
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
