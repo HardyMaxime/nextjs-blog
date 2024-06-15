@@ -13,7 +13,7 @@ export async function generateStaticParams()
 
 async function getData(slug) {
     const ID = extratID(slug);
-    const res = await fetch(process.env.BACKOFFICE_URL+`projects/${ID}`);
+    const res = await fetch(process.env.BACKOFFICE_URL+`projects/${ID}`, { next: { revalidate: 10 } });
 
     if (!res.ok) {
       throw new Error('Failed to fetch data')
